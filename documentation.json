@@ -1,0 +1,69 @@
+{
+  "name": "Shubham Kumar Documentation",
+  "initialRoute": "introduction",
+  "primaryColor": "#3B82F6",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "icon": "book",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
+            "pages": [
+              {
+                "title": "Introduction",
+                "path": "introduction",
+                "icon": "star"
+              },
+              {
+                "title": "Getting Started",
+                "path": "getting-started",
+                "icon": "play"
+              }
+            ]
+          },
+          {
+            "group": "Usage Guides",
+            "icon": "book-open",
+            "pages": [
+              {
+                "title": "API Usage",
+                "path": "api-usage",
+                "icon": "code"
+              },
+              {
+                "title": "Best Practices",
+                "path": "best-practices",
+                "icon": "award"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Endpoints",
+            "icon": "terminal",
+            "openapi": "openapi.yaml"
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "icon": "clock",
+        "pages": [
+          {
+            "title": "Release History",
+            "path": "changelog",
+            "icon": "history"
+          }
+        ]
+      }
+    ]
+  }
+}

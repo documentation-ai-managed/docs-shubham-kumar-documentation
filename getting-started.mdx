@@ -1,0 +1,78 @@
+---
+title: Getting Started
+description: Step-by-step guide to setting up and using Shubham Kumar Documentation
+---
+
+## Initial Setup
+
+Getting started with Shubham Kumar Documentation is straightforward. Follow these steps to create your first documentation project.
+
+<Steps>
+  <Step title="Create Account" icon="user">
+    Sign up for a free account at our website to access the documentation platform.
+  </Step>
+  <Step title="Set Up Project" icon="folder">
+    Create a new project and configure basic settings like name, description, and team members.
+    
+    <CodeGroup tabs="Web UI,API">
+      ```bash
+      curl -X POST https://api.docs.example.com/projects \
+        -H "Authorization: Bearer YOUR_TOKEN" \
+        -H "Content-Type: application/json" \
+        -d '{"name":"My Project","description":"Documentation for project"}'
+      ```
+      ```javascript
+      const project = await fetch('/api/projects', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: 'My Project',
+          description: 'Documentation for project'
+        })
+      });
+      ```
+    </CodeGroup>
+  </Step>
+  <Step title="Add Content" icon="file-text">
+    Start adding pages, uploading files, and organizing your documentation structure.
+  </Step>
+</Steps>
+
+## Basic Navigation
+
+Once set up, navigate through your documentation using the sidebar. You can search, bookmark pages, and use keyboard shortcuts for efficiency.
+
+<Tabs>
+  <Tab title="Keyboard Shortcuts" icon="keyboard">
+    | Shortcut | Action |
+    |----------|--------|
+    | `Ctrl+K` | Search |
+    | `Ctrl+N` | New page |
+    | `Ctrl+S` | Save |
+  </Tab>
+  <Tab title="Search Features" icon="search">
+    Use advanced search with filters for content type, author, and date ranges.
+    
+    <Callout kind="tip">Search supports boolean operators and exact phrase matching.</Callout>
+  </Tab>
+</Tabs>
+
+## Common Tasks
+
+<ExpandableGroup>
+  <Expandable title="How do I invite team members?" default-open="false">
+    Go to project settings, select the "Team" tab, and enter email addresses. Invited members will receive an email with access instructions.
+  </Expandable>
+  <Expandable title="Can I import existing documentation?" default-open="false">
+    Yes, we support importing from GitHub repositories, Confluence spaces, and various file formats including Markdown and HTML.
+  </Expandable>
+</ExpandableGroup>
+
+## Troubleshooting
+
+<Callout kind="alert">If you encounter issues during setup, check your internet connection and browser compatibility.</Callout>
+
+For persistent problems, contact our support team with your project ID and error details.

@@ -1,0 +1,96 @@
+---
+title: API Usage
+description: Guide to using the Shubham Kumar Documentation API for programmatic access
+---
+
+## Authentication
+
+To use our API, you need an API key. Obtain one from your account settings and include it in all requests.
+
+<ParamField path="Authorization" param-type="string" required="true">
+  Bearer token in the format `Bearer YOUR_API_KEY`.
+</ParamField>
+
+<CodeGroup tabs="curl,Python,JavaScript">
+  ```bash
+  curl -H "Authorization: Bearer YOUR_API_KEY" https://api.docs.example.com/projects
+  ```
+  ```python
+  import requests
+  
+  headers = {'Authorization': 'Bearer YOUR_API_KEY'}
+  response = requests.get('https://api.docs.example.com/projects', headers=headers)
+  ```
+  ```javascript
+  fetch('/api/projects', {
+    headers: { 'Authorization': `Bearer ${apiKey}` }
+  });
+  ```
+</CodeGroup>
+
+## Core Endpoints
+
+Our API provides endpoints for managing projects, pages, and users.
+
+<Tabs>
+  <Tab title="Projects" icon="folder">
+    Create, update, and manage documentation projects.
+    
+    <ParamField body="name" param-type="string" required="true">
+      Project name.
+    </ParamField>
+    <ParamField body="description" param-type="string" required="false">
+      Optional project description.
+    </ParamField>
+  </Tab>
+  <Tab title="Pages" icon="file-text">
+    Handle individual documentation pages.
+    
+    <ParamField body="title" param-type="string" required="true">
+      Page title.
+    </ParamField>
+    <ParamField body="content" param-type="string" required="true">
+      Page content in Markdown format.
+    </ParamField>
+  </Tab>
+</Tabs>
+
+## Rate Limits
+
+<Callout kind="info">API requests are limited to 1000 per hour per API key.</Callout>
+
+<ResponseField name="X-RateLimit-Remaining" field-type="integer" required="true">
+  Number of requests remaining in current window.
+</ResponseField>
+
+## Error Handling
+
+Our API returns standard HTTP status codes. Common errors include 401 for authentication failures and 429 for rate limit exceeded.
+
+<Expandable title="Error Response Format" default-open="false">
+  All errors follow this structure:
+  
+  ```json
+  {
+    "error": {
+      "code": "INVALID_TOKEN",
+      "message": "The provided API key is invalid",
+      "details": "Check your API key in account settings"
+    }
+  }
+  ```
+</Expandable>
+
+## Best Practices
+
+<Steps>
+  <Step title="Use HTTPS" icon="lock">
+    Always use HTTPS for all API requests to ensure data security.
+  </Step>
+  <Step title="Handle Errors Gracefully" icon="alert-circle">
+    Implement proper error handling in your applications.
+  </Step>
+  <Step title="Cache Responses" icon="database">
+    Cache API responses where appropriate to reduce rate limit usage.
+  </Step>
+</Steps>
